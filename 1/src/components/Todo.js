@@ -9,15 +9,17 @@ class Todo extends Component {
             tasks: []
         }
         this.getInfoFromForm = this.getInfoFromForm.bind(this);
+        this.getInfoFromList = this.getInfoFromList.bind(this);
         this.removeTodo = this.removeTodo.bind(this);
     }
 
-    componentDidUpdate() {
-
-    }
 
     getInfoFromForm(info) {
         this.setState({tasks: [...this.state.tasks, info]})
+    }
+
+    getInfoFromList(info) {
+        this.setState({tasks: info})
     }
 
     removeTodo(item) {
@@ -32,6 +34,7 @@ class Todo extends Component {
                 <Todolist 
                 tasks={this.state.tasks} 
                 remove={this.removeTodo}
+                transferData={this.getInfoFromList}
                 />
             </div>
         );
