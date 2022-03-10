@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {BsPlusLg} from 'react-icons/bs'
+import { v4 as uuid } from 'uuid';
 
 class Todoform extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class Todoform extends Component {
         if (this.state.value !=="") {
             let temp = this.state.value;
             this.setState({value: ""}, () => {
-                this.props.transferData({"id":Date.now(), "task": temp, "read":true})
+                this.props.transferData({"id":uuid(), "task": temp, "read":true})
             })
         }
     }
